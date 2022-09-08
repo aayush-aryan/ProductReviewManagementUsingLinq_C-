@@ -52,7 +52,9 @@ namespace ProductReviewManagementUsingLinq
             // productManagement.RetrieveReviewCountForEachProductIdOfRecords(productReviewList);
             // Console.WriteLine("------ProductID_And_Review_only---------------");
             // productManagement.RetrieveProductIdAndReview(productReviewList);
-            productManagement.GetAllRecordsExceptSkipTopFiveRecords(productReviewList);
+           // productManagement.GetAllRecordsExceptSkipTopFiveRecords(productReviewList);
+           //UC7
+            productManagement.RetrieveOnlyProductIDAndReviewOfAllRecordsUsingSelect(productReviewList);
         }
     }
 }

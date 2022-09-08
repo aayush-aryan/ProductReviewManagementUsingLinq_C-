@@ -102,5 +102,19 @@ namespace ProductReviewManagementUsingLinq
                 + "Review :-" + list.Review + " " + "isLike :-" + list.isLike);
             }
         }
+        /// <summary>
+        /// UC7
+        /// Retrieving OnlyProductIDAndReviewOfAllRecordsUsingSelect
+        /// </summary>
+        /// <param name="productReviewList"></param>
+        public void RetrieveOnlyProductIDAndReviewOfAllRecordsUsingSelect(List<ProductReview> productReviewList)
+        {
+            var recordedData = productReviewList.Select(x => new { ProductId = x.ProductID, Review = x.Review });
+            Console.WriteLine("\nProductId and its review using LINQ select:");
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine($"ProductID:{list.ProductId},ReviewCount:{list.Review}");
+            }
+        }
     }
 }
