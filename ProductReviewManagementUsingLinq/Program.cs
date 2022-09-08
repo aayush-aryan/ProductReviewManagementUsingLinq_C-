@@ -46,10 +46,12 @@ namespace ProductReviewManagementUsingLinq
 
             // To Retrieve top three records with having high ratings
             // productManagement.GetTopThreeRecords(productReviewList);
-          //  Console.WriteLine("---------------RecodrdsGreaterthenthreeRatingsAndUserID-1-4-9---------");
-           // productManagement.GetRecordsHavingRatingsGreaterThanThreeAndSpecificProductID(productReviewList);
-            Console.WriteLine("----Review count for each product ID:");
-            productManagement.RetrieveReviewCountForEachProductIdOfRecords(productReviewList);
+            //  Console.WriteLine("---------------RecodrdsGreaterthenthreeRatingsAndUserID-1-4-9---------");
+            // productManagement.GetRecordsHavingRatingsGreaterThanThreeAndSpecificProductID(productReviewList);
+            // Console.WriteLine("----Review count for each product ID:");
+            // productManagement.RetrieveReviewCountForEachProductIdOfRecords(productReviewList);
+            Console.WriteLine("------ProductID_And_Review_only---------------");
+            productManagement.RetrieveProductIdAndReview(productReviewList);
         }
     }
 }

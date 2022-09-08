@@ -21,7 +21,7 @@ namespace ProductReviewManagementUsingLinq
 
             foreach (var list in recordedData)
             {
-                Console.WriteLine("ProductId :-" + list.ProductID + " " + "UserId:-" + list.UserID + " " + "Rating :-" + " " 
+                Console.WriteLine("ProductId :-" + list.ProductID + " " + "UserId:-" + list.UserID + " " + "Rating :-" + " "
                     + list.Rating + " " + "Review :-" + list.Review + " " + "isLike :-" + list.isLike);
             }
         }
@@ -35,9 +35,9 @@ namespace ProductReviewManagementUsingLinq
         {
             // Linq query to retrieve records with given condition
             IEnumerable<ProductReview> recordedData = (from productsL in productReviewList
-                                where (productsL.Rating > 3) && (productsL.ProductID == 1 || productsL.ProductID == 4 || 
-                                productsL.ProductID == 9)
-                                select productsL);
+                                                       where (productsL.Rating > 3) && (productsL.ProductID == 1 || productsL.ProductID == 4 ||
+                                                       productsL.ProductID == 9)
+                                                       select productsL);
 
             foreach (var list in recordedData)
             {
@@ -46,6 +46,7 @@ namespace ProductReviewManagementUsingLinq
             }
         }
         /// <summary>
+        /// UC4
         /// Review Count for each product id
         /// using object listReview also by grouping the ProductId
         /// then selecting ProductId and then count is used 
@@ -62,6 +63,26 @@ namespace ProductReviewManagementUsingLinq
             foreach (var list in recordedData)
             {
                 Console.WriteLine($"ProductID:{list.ProductID},ReviewCount:{list.Count}");
+            }
+        }
+        /// <summary>
+        /// UC5
+        /// from productreviews of object table listreview retrieve 
+        /// only product id and review product reviews from the list
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void RetrieveProductIdAndReview(List<ProductReview> listProductReview)
+        {
+            var recordedData = from productReviews in listProductReview
+                               select new
+                               {
+                                   productReviews.ProductID,
+                                   productReviews.Review
+                               };
+
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("Product Id:- " + list.ProductID + " " + "Review: " + list.Review);
             }
         }
     }
