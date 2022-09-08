@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Text;
+
+namespace ProductReviewManagementUsingLinq
+{
+   public class ProductReviewDataTable
+    {
+        /// <summary>
+        /// Data binding is a common use of DataTable object.
+        /// When the data operations have been performed, the new DataTable is merged back into the source DataTable.
+        /// creating dataTable object
+        /// </summary>
+        public static DataTable dataTable = new DataTable();
+        public static void AddDataIntoDataTable()
+        {
+            //Columns-return collections of datacolumn object for the table
+            //Add- add datacolumns object and return newly created data column
+            //Adding Fields into the datatable
+            dataTable.Columns.Add("ProductId", typeof(Int32));
+            dataTable.Columns.Add("UserId", typeof(Int32));
+            dataTable.Columns.Add("Rating", typeof(double));
+            dataTable.Columns.Add("Review", typeof(string));
+            dataTable.Columns.Add("IsLike", typeof(bool));
+            //returns datarow collections contains datarow objects;
+            // Creating rows and adding values into column wise
+            dataTable.Rows.Add(1, 1, 5, "good", "true");
+            dataTable.Rows.Add(2, 2, 3, "better", "true");
+            dataTable.Rows.Add(3, 3, 5, "good", "true");
+            dataTable.Rows.Add(4, 4, 4, "nice", "true");
+            dataTable.Rows.Add(5, 5, 3, "better", "true");
+            dataTable.Rows.Add(6, 6, 5, "good", "false");
+            dataTable.Rows.Add(7, 7, 5, "good", "true");
+            dataTable.Rows.Add(8, 7, 5, "better", "true");
+            dataTable.Rows.Add(9, 8, 3, "good", "true");
+            dataTable.Rows.Add(10, 9, 5, "good", "true");
+            dataTable.Rows.Add(11, 10, 3, "better", "true");
+            dataTable.Rows.Add(12, 10, 4, "nice", "false");
+            dataTable.Rows.Add(13, 11, 3, "better", "true");
+            dataTable.Rows.Add(14, 11, 4, "good", "true");
+            dataTable.Rows.Add(15, 11, 5, "good", "true");
+            dataTable.Rows.Add(16, 11, 5, "good", "true");
+            dataTable.Rows.Add(17, 11, 3, "better", "true");
+            dataTable.Rows.Add(18, 12, 4, "nice", "true");
+            dataTable.Rows.Add(19, 15, 5, "good", "true");
+            dataTable.Rows.Add(20, 16, 5, "good", "true");
+            dataTable.Rows.Add(21, 17, 5, "good", "true");
+            dataTable.Rows.Add(22, 11, 4, "nice", "true");
+            dataTable.Rows.Add(23, 18, 3, "better", "false");
+            dataTable.Rows.Add(24, 19, 4, "nice", "true");
+            dataTable.Rows.Add(25, 20, 4, "nice", "true");
+
+            //Printing data
+            Console.WriteLine("\nDataTable contents are :");
+            foreach (var dataTableList in dataTable.AsEnumerable()) // returns IEnumerable<datarow> object;
+            {
+                //Field<genericType>("columnName")-returns value of specified colum generic Type
+                Console.WriteLine($"ProductID:{dataTableList.Field<int>("ProductId")}\tUserID:{dataTableList.Field<int>("UserId")}" +
+                    $"\tRating:{dataTableList.Field<double>("Rating")}\tReview:{dataTableList.Field<string>("Review")}\tIsLike:{dataTableList.Field<bool>("IsLike")}");
+            }
+
+        }
+    }
+}
+  
