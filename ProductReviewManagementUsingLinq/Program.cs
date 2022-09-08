@@ -59,7 +59,9 @@ namespace ProductReviewManagementUsingLinq
             //Created data table
            // ProductReviewDataTable.AddDataIntoDataTable();
             //uc9
-            ProductReviewDataTable.RetrivingAllRecordsFromDataTableWhoseIsLikeIsTrue();
+           // ProductReviewDataTable.RetrivingAllRecordsFromDataTableWhoseIsLikeIsTrue();
+           //UC10
+           ProductReviewDataTable.FindingAverageRatingForEachProductId();
         }
     }
 }

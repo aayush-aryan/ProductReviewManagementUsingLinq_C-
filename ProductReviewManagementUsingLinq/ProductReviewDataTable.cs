@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace ProductReviewManagementUsingLinq
@@ -80,6 +81,21 @@ namespace ProductReviewManagementUsingLinq
             {
                 Console.WriteLine($"ProductID:{tableObjectList.Field<int>("ProductId")}\tUserID:{tableObjectList.Field<int>("UserId")}" +
                     $"\tRating:{tableObjectList.Field<double>("Rating")}\tReview:{tableObjectList.Field<string>("Review")}\tIsLike:{tableObjectList.Field<bool>("IsLike")}");
+            }
+        }
+
+        /// <summary>
+        /// UC 10 
+        /// method for Finding average rating for each productId.
+        /// </summary>
+        public static void FindingAverageRatingForEachProductId()
+        {
+            var retrievedData = dataTable.AsEnumerable().GroupBy(r => r.Field<int>("ProductId"))
+                .Select(x => new { ProductId = x.Key, Average = x.Average(r => r.Field<double>("Rating")) });
+            Console.WriteLine("\nProductId and its average rating");
+            foreach (var tableObj in retrievedData)
+            {
+                Console.WriteLine($"ProductID:{tableObj.ProductId},AverageRating:{tableObj.Average}");
             }
         }
     }
