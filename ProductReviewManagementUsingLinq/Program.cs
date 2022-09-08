@@ -37,7 +37,6 @@ namespace ProductReviewManagementUsingLinq
                 new ProductReview(){ ProductID = 24, UserID = 20, Rating = 5, Review = "Good", isLike = false},
                 new ProductReview(){ ProductID = 25, UserID = 20, Rating = 5, Review = "Good", isLike = false},
             };
-            // Iterating through list.
             foreach (var list in productReviewList)
             {
                 Console.WriteLine("ProductId :-" + list.ProductID + " " + "UserId :-" + list.UserID + " " + "Rating :-" + " " + list.Rating + " "
@@ -47,8 +46,10 @@ namespace ProductReviewManagementUsingLinq
 
             // To Retrieve top three records with having high ratings
             // productManagement.GetTopThreeRecords(productReviewList);
-            Console.WriteLine("---------------RecodrdsGreaterthenthreeRatingsAndUserID-1-4-9---------");
-            productManagement.GetRecordsHavingRatingsGreaterThanThreeAndSpecificProductID(productReviewList);
+          //  Console.WriteLine("---------------RecodrdsGreaterthenthreeRatingsAndUserID-1-4-9---------");
+           // productManagement.GetRecordsHavingRatingsGreaterThanThreeAndSpecificProductID(productReviewList);
+            Console.WriteLine("----Review count for each product ID:");
+            productManagement.RetrieveReviewCountForEachProductIdOfRecords(productReviewList);
         }
     }
 }

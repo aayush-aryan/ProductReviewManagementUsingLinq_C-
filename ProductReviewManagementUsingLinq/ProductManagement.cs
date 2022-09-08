@@ -45,5 +45,24 @@ namespace ProductReviewManagementUsingLinq
                 + "Review :-" + list.Review + " " + "isLike :-" + list.isLike);
             }
         }
+        /// <summary>
+        /// Review Count for each product id
+        /// using object listReview also by grouping the ProductId
+        /// then selecting ProductId and then count is used 
+        /// ProductId is Unique so we take as key 
+        /// Count()-> returns no of element in sequence;method inside IEnumerable; 
+        /// </summary>
+        /// <param name="listProductReview"></param>
+        public void RetrieveReviewCountForEachProductIdOfRecords(List<ProductReview> listProductReview)
+        {
+            var recordedData = listProductReview.GroupBy(x => x.ProductID).Select(x => new { ProductID = x.Key, Count = x.Count() });
+
+            Console.WriteLine("ProductId and their review count:");
+
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine($"ProductID:{list.ProductID},ReviewCount:{list.Count}");
+            }
+        }
     }
 }
