@@ -13,6 +13,10 @@ namespace ProductReviewManagementUsingLinq
         /// creating dataTable object
         /// </summary>
         public static DataTable dataTable = new DataTable();
+        /// <summary>
+        /// Uc8
+        /// Adds data into data table.
+        /// </summary>
         public static void AddDataIntoDataTable()
         {
             //Columns-return collections of datacolumn object for the table
@@ -60,6 +64,23 @@ namespace ProductReviewManagementUsingLinq
                     $"\tRating:{dataTableList.Field<double>("Rating")}\tReview:{dataTableList.Field<string>("Review")}\tIsLike:{dataTableList.Field<bool>("IsLike")}");
             }
 
+        }
+
+        /// <summary>
+        /// UC9 
+        /// Retrieveing all records whose islike is true.
+        /// </summary>
+        public static void RetrivingAllRecordsFromDataTableWhoseIsLikeIsTrue()
+        {
+            var retrievedData = from records in dataTable.AsEnumerable()
+                                where (records.Field<bool>("IsLike") == true)
+                                select records;
+            Console.WriteLine("\nRecords in table whose IsLike value is true:");
+            foreach (var tableObjectList in retrievedData)
+            {
+                Console.WriteLine($"ProductID:{tableObjectList.Field<int>("ProductId")}\tUserID:{tableObjectList.Field<int>("UserId")}" +
+                    $"\tRating:{tableObjectList.Field<double>("Rating")}\tReview:{tableObjectList.Field<string>("Review")}\tIsLike:{tableObjectList.Field<bool>("IsLike")}");
+            }
         }
     }
 }
