@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ProductReviewManagementUsingLinq
 {
-   public class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -50,8 +50,9 @@ namespace ProductReviewManagementUsingLinq
             // productManagement.GetRecordsHavingRatingsGreaterThanThreeAndSpecificProductID(productReviewList);
             // Console.WriteLine("----Review count for each product ID:");
             // productManagement.RetrieveReviewCountForEachProductIdOfRecords(productReviewList);
-            Console.WriteLine("------ProductID_And_Review_only---------------");
-            productManagement.RetrieveProductIdAndReview(productReviewList);
+            // Console.WriteLine("------ProductID_And_Review_only---------------");
+            // productManagement.RetrieveProductIdAndReview(productReviewList);
+            productManagement.GetAllRecordsExceptSkipTopFiveRecords(productReviewList);
         }
     }
 }
