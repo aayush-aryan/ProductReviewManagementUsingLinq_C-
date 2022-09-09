@@ -98,6 +98,22 @@ namespace ProductReviewManagementUsingLinq
                 Console.WriteLine($"ProductID:{tableObj.ProductId},AverageRating:{tableObj.Average}");
             }
         }
+
+        /// <summary>
+        /// UC 11
+        ///  Retrieving all records having nice review message.
+        /// </summary>
+        public static void RetrieveRecordsWhoseReviewMessageIsNice()
+        {
+            var retrievedData = from records in dataTable.AsEnumerable()
+                                where (records.Field<string>("Review") == "nice")
+                                select records;
+            Console.WriteLine("\nRecords in table whose Review message=nice:");
+            foreach (var tblObj in retrievedData)
+            {
+                Console.WriteLine($"ProductID:{tblObj.Field<int>("ProductId")}\tUserID:{tblObj.Field<int>("UserId")}\tRating:{tblObj.Field<double>("Rating")}\tReview:{tblObj.Field<string>("Review")}\tIsLike:{tblObj.Field<bool>("IsLike")}");
+            }
+        }
     }
 }
   
